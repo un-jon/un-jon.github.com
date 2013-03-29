@@ -29,7 +29,7 @@ En ce moment, on a François qui présente les Monads aux geeks :
 
 * [FLATMAP ZAT SHIT : les monades expliquées aux geeks](http://www.devoxx.com/display/FR13/FLATMAP+ZAT+SHIT+++les+monades+expliquees+aux+geeks)
 
-Et plus tard dans la journée, on va avoir Bodil qui présenter (ou pas ) un peu de théorie des catégories : 
+Et plus tard dans la journée, Bodil va présenter (ou pas ) un peu de théorie des catégories : 
 
 * [What every hipster should know about functional programming.](http://www.devoxx.com/display/FR13/What+Every+Hipster+Should+Know+About+Functional+Programming)
 
