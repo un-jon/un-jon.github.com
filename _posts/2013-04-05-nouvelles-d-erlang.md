@@ -21,7 +21,7 @@ Je le dis souvent, Erlang ça poutre sérieux, c'est n'est pas qu'un langage de 
 
 Riak a opensourcé leur implémentation de Amazon S3, Riak Cloud Storage. C'est énorme, si vous avez quelques serveurs qui trâinent, cela peut-être très sympa comme service à déployer.
 
-S3 ou les HDFS étant les composants standards pour faire la mémoire d'un système, cette disponibilité en opensource va permettre de nouvelles oportunités pour remplacer des composants critiques.
+S3 ou les HDFS étant les composants standards pour faire la mémoire d'un système, cette disponibilité en opensource va permettre de nouvelles opportunités pour remplacer des composants critiques.
 
 
 [http://basho.com/riak-cloud-storage](http://basho.com/riak-cloud-storage)
