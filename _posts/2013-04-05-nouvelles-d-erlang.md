@@ -12,7 +12,7 @@ tags: []
 Ahoy ! 
 
 
-Je le dis souvent, Erlang ça poutre sérieux, c'est n'est pas un langage de prog pour faire des logiciels, mais c'est un langage de prog pour faire des systèmes. 
+Je le dis souvent, Erlang ça poutre sérieux, c'est n'est pas qu'un langage de prog pour faire des softs, c'est aussi un langage de prog pour faire des systèmes. 
 
 
 
