@@ -28,7 +28,7 @@ Ceci est un block qui renvoit la valeur "MONDE" :
 
 
 
-Voici l'arbre syntaxique abstrait (simplifié) de ce block :
+Voici l'arbre syntaxique abstrait (simplifié) de ce block  (Observation du monde) :
 {% highlight scala %}
 Block(
     // définition de la valeur
@@ -45,7 +45,32 @@ Block(
 {% endhighlight %}
 
 
-On a observé le monde (ici le code Scala) comme un arbre. Une des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à Literal(Contstant("monde")), à l'application avec la fonction "toUpperCase" etc ...
+La représentation classique du monde ici, après les différentes phases du compilateur, ressembe à du bytecode pour la JVM :
 
-C'est une représentation du monde possible, basé sur les observations. Il y a pleins d'autres, certaines peuvent même être compatible entre elles.
+{% highlight scala %}
+Constant pool:
+  #14 = Utf8               ()Ljava/lang/String;
+  #15 = Utf8               Monde
+  #16 = String             #15            //  Monde
+  #17 = Utf8               LineNumberTable
+  #18 = Utf8               java/lang/String
+  #19 = Class              #18            //  java/lang/String
+  #20 = Utf8               toUpperCase
+  #21 = NameAndType        #20:#14        //  toUpperCase:()Ljava/lang/String;
+  #22 = Methodref          #19.#21        //  java/lang/String.toUpperCase:()Ljava/lang/String;
+{
+    Code:
+      stack=1, locals=1, args_size=1
+         0: ldc           #16                 // String Monde
+         2: astore_1
+         3: aload_1
+         4: invokevirtual #22                 // Method java/lang/String.toUpperCase:()Ljava/lang/String;
+         7: areturn
+}
+{% endhighlight %}
+
+
+Une autre des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à Literal(Contstant("monde")), à l'application avec la fonction "toUpperCase" etc ...
+
+Il y en a pleins d'autres, certaines peuvent même être compatible entre elles.
 
