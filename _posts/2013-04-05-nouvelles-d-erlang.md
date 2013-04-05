@@ -24,18 +24,26 @@ Riak a opensourcé leurs implémentations de Amazon S3, nommé Riak Cloud Storag
 S3 ou les HDFS étant les composants standards pour faire la mémoire d'un système, c'est disponibilité en opensource va permettre de nouvelles oportunités pour remplacer des composants critiques.
 
 
+http://basho.com/riak-cloud-storage/
+
+
 # Erlang on Xen
 
-Au coeur des clouds super elastiques : 
+Au coeur des clouds super elastiques. J'adore le concept dont avait parlé Joe Amstrong : j'ai des machines, et je décide dynamiquement quelles sont les tâches elles executent, en 1 s, elles peuvent devenir un serveur Web, ou un FTP ...
 
 
+http://erlangonxen.org/
 
+
+et
+
+http://www.infoq.com/presentations/Systems-that-Never-Stop-Joe-Armstrong
 
 
 
 # OTP : Outlaw Techno Psychobitch
 
-Erlang a une nouvelle identité : OTP
+Erlang a une nouvelle identité : Outlaw Techno Psychobitch
 
 http://www.youtube.com/watch?feature=player_embedded&v=rRbY3TMUcgQ
 

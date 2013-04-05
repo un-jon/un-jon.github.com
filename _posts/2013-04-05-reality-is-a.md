@@ -10,14 +10,13 @@ tags: []
 
 Reality is not a ___ 
 
-On ne peut rien énoncer sur la représentation du monde, on veut que certaines représentations possèdent des propriétés interressantes, mais c'est tout, tout les modèles de ce coté là approchent et atteignent très vite leurs limites (cf Gödel, le cygne noir).
-
+On ne peut rien énoncer sur la représentation du monde, on veut que certaines représentations possèdent des propriétés interressantes, mais c'est tout. Tous les modèles de ce coté là , parceque suffisament complexes, approchent et atteignent très vite leurs limites (cf le théorème d'incomplétude ou le théorème du cygne noir).
 
 Par contre, on oublie souvent que l'observation du monde est un arbre et aussi que l'observation du monde a un schéma (schemalater, mais toujours un schema). 
 
 Pour vous aider à comprendre la différence entre la représentation du monde et l'observation du monde, je vous propose un peu de Scala.
 
-Ceci est un block qui renvoit la valeur "MONDE"
+Ceci est un block qui renvoit la valeur "MONDE" :
 {% highlight scala %}
 {
 	val a = "monde"
@@ -29,7 +28,7 @@ Ceci est un block qui renvoit la valeur "MONDE"
 
 
 
-Voici l'arbre syntaxique abstrait (simplifié) de ce block
+Voici l'arbre syntaxique abstrait (simplifié) de ce block :
 {% highlight scala %}
 Block(
     // définition de la valeur
@@ -46,7 +45,7 @@ Block(
 {% endhighlight %}
 
 
-Vous voyez le ```newTermName("a")``` ? J'ai observé mon monde comme un arbre, mais une des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à Literal(Contstant("monde")), à l'application avec la fonction "toUpperCase" etc ...
+On a observé le monde (ici le code Scala) comme un arbre, mais une des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à Literal(Contstant("monde")), à l'application avec la fonction "toUpperCase" etc ...
 
-Ce n'est qu'une représentation du monde possible, basé sur ces observations. Il peut aussi y avoir d'autres représentations valables qui peuvent cohabiter.
+Ce n'est qu'une représentation du monde possible, basé sur ces observations. Il y a pleins d'autres, certaines peuvent même être compatible entre elles.
 
