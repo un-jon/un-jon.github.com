@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reality is a"
+title: "Reality is not a"
 description: ""
 category: 
 tags: []
@@ -8,17 +8,14 @@ tags: []
 {% include JB/setup %}
 
 
-Lorsque l'on parle de la réprésentation du monde, certains disent que l'on peut/doit le réprésenter comme des relations, d'autres comme un graphe, mais en fait non, il faut utiliser des relations logiques avec une ontologie. Et en fait pas du tout.
+Reality is not a ___ 
 
-Ceux qui ont une forte afinité avec les mathématiques savent qu'il y a des problèmes majeurs avec la représentation du monde.
+On ne peut rien énoncer sur la représentation du monde, on veut que certaines représentations possèdent des propriétés interressantes, mais c'est tout, tout les modèles de ce coté là approchent et atteignent très vite leurs limites (cf Gödel, le cygne noir).
 
-On ne peut rien affirmer sur la représentation du monde, on veut que certaines représentations possèdent des propriétés interressantes, mais on est loin de l'universalité.
 
-Par contre, l'observation du monde est un arbre, l'observation du monde a un schema.
+Par contre, on oublie souvent que l'observation du monde est un arbre et aussi que l'observation du monde a un schéma (schemalater, mais toujours un schema). 
 
-C'est ce que font ceux qui font de l'event sourcing ou des compilateurs.
-
-Pour vous aider à comprendre la différence, je vous propose un peu de Scala. 
+Pour vous aider à comprendre la différence entre la représentation du monde et l'observation du monde, je vous propose un peu de Scala.
 
 Ceci est un block qui renvoit la valeur "MONDE"
 {% highlight scala %}
@@ -51,7 +48,5 @@ Block(
 
 Vous voyez le ```newTermName("a")``` ? J'ai observé mon monde comme un arbre, mais une des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à Literal(Contstant("monde")), à l'application avec la fonction "toUpperCase" etc ...
 
-Ce n'est qu'une représentation du monde possible, basé sur ce cette observation. Il peut y avoir d'autres représentations valables qui peuvent cohabiter entre elles.
-
-
+Ce n'est qu'une représentation du monde possible, basé sur ces observations. Il peut aussi y avoir d'autres représentations valables qui peuvent cohabiter.
 
