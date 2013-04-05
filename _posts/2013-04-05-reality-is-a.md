@@ -47,5 +47,5 @@ Block(
 
 On a observé le monde (ici le code Scala) comme un arbre. Une des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à Literal(Contstant("monde")), à l'application avec la fonction "toUpperCase" etc ...
 
-Ce n'est qu'une représentation du monde possible, basé sur ces observations. Il y a pleins d'autres, certaines peuvent même être compatible entre elles.
+C'est une représentation du monde possible, basé sur les observations. Il y a pleins d'autres, certaines peuvent même être compatible entre elles.
 
