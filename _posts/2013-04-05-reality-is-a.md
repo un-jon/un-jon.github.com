@@ -28,7 +28,7 @@ Ceci est un block qui renvoit la valeur "MONDE" :
 
 
 
-Voici l'arbre syntaxique abstrait (simplifié) de ce block  (Observation du monde) :
+Voici l'arbre syntaxique abstrait (simplifié) de ce block  (Observation du block) :
 {% highlight scala %}
 Block(
     // définition de la valeur
@@ -45,7 +45,7 @@ Block(
 {% endhighlight %}
 
 
-La représentation classique du monde ici, après les différentes phases du compilateur, ressembe à du bytecode pour la JVM :
+La représentation classique du block ici, après les différentes phases du compilateur, ressembe à du bytecode pour la JVM :
 
 {% highlight scala %}
 Constant pool:
