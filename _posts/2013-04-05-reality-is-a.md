@@ -10,7 +10,7 @@ tags: []
 
 Reality is not a ___ 
 
-On ne peut pas énoncer grand chose sur la représentation du monde, on veut que des représentations possèdent des propriétés interressantes et c'est probablement tout. Tous les modèles de ce coté là, parceque suffisament complexes, approchent et atteignent très vite leurs limites (cf le théorème d'incomplétude ou le théorème du cygne noir).
+On ne peut pas énoncer grand chose sur la représentation du monde, on veut que des représentations possèdent des propriétés intéressantes et c'est probablement tout. Tous les modèles de ce coté-là, parce que suffisament complexes, approchent et atteignent très vite leurs limites (cf le théorème d'incomplétude ou le théorème du cygne noir).
 
 Par contre, on oublie souvent que l'observation du monde est un arbre et aussi que cette observation a un schéma (schemalater, mais toujours un schéma). 
 
