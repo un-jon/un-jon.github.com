@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reality is not a"
+title: "Reality is not a ____"
 description: ""
 category: 
 tags: []
@@ -8,11 +8,9 @@ tags: []
 {% include JB/setup %}
 
 
-Reality is not a ___ 
+Il est difficile d'énoncer quelque chose sur la représentation du monde, on veut que des représentations possèdent des propriétés intéressantes et c'est probablement tout. Tous les modèles de ce coté-là, parce que suffisament complexes, approchent et atteignent très vite leurs limites (cf le théorème d'incomplétude ou le théorème du cygne noir).
 
-On ne peut pas énoncer grand chose sur la représentation du monde, on veut que des représentations possèdent des propriétés intéressantes et c'est probablement tout. Tous les modèles de ce coté-là, parce que suffisament complexes, approchent et atteignent très vite leurs limites (cf le théorème d'incomplétude ou le théorème du cygne noir).
-
-Par contre, on oublie souvent que l'observation du monde est un arbre et aussi que cette observation a un schéma (schemalater, mais toujours un schéma). 
+Par contre, on oublie souvent que l'observation du monde est un arbre et aussi que cette observation a un schéma ("SchemaLater" et non "SchemaLess", mais toujours un schéma). 
 
 Pour aider à comprendre la différence entre la représentation du monde et l'observation du monde, je vous propose un peu de Scala.
 
@@ -45,7 +43,7 @@ Block(
 {% endhighlight %}
 
 
-La représentation classique du block ici, après les différentes phases du compilateur, ressembe à du bytecode pour la JVM :
+La représentation classique du block ici, après les différentes phases du compilateur, ressemble à du bytecode pour la JVM :
 
 {% highlight scala %}
 Constant pool:
@@ -70,7 +68,10 @@ Constant pool:
 {% endhighlight %}
 
 
-Une autre des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à Literal(Contstant("monde")), à l'application avec la fonction "toUpperCase" etc ...
+Une autre des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à ```Literal(Constant("monde"))```, à l'application avec la fonction```"toUpperCase"``` ....
+
+![cool dag](/assets/reality.dot.png)
+
 
 Il y en a pleins d'autres, certaines peuvent même être compatible entre elles.
 
