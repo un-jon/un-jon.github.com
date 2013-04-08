@@ -26,7 +26,7 @@ Quand le modèle fut bien déployé, on a maximisé la réutilisation d'un modè
 On connaît l'histoire et elle n'est pas forcement mauvaise.
 
 
-L'histoire que l'on a oublié, c'est celle de la mécanisation de la pensée du début du 20ème siècle, les travaux sur les mathématiques, la théorie des ensembles, le Entscheidungsproblem (formulation) ainsi que des couperets qui s'en suivent, l'imcomplétude de Gödel, la négation de la résultion du Halting Problem ...
+L'histoire que l'on a oublié, c'est celle de la mécanisation de la pensée du début du 20ème siècle, les travaux sur les mathématiques ainsi que des couperets qui s'en suivent comme l'imcomplétude de Gödel et autres.
 
 Gödel montre que tout système formel sufisament complexe est imcomplet, la course à la modélisation est infinie. Plus on complexifie le modèle, plus il faut le complexifier pour qu'il gère ses propres éléments.
 
@@ -34,7 +34,7 @@ Il ne sert à rien de vouloir obtenir des modèles complets, il faudrait minimis
 
 ## Mon rasoir d'Occam
 
-Mais la minimisation des modèles n'est pas suffisante, les modèles que l'on peut créer pour telle ou telle problèmatique sont faux, souvent peut évolutif [^3]. On ne peut pas se permettre de passer 3 mois à se poser les questions si oui ou non on versionne une partie du modèle, quel est la cardinalité entre plusieurs entités, etc etc.
+La minimisation des modèles n'est pas suffisante, les modèles que l'on peut créer pour telle ou telle problèmatique sont faux, souvent peut évolutif [^3]. On ne peut pas se permettre de passer 3 mois à se poser les questions si oui ou non on versionne une partie du modèle, quel est la cardinalité entre plusieurs entités, etc etc.
 
 A mon avis, le problème global avec les modèles, c'est qu'ils sont responsables de trop de choses à la fois, et en particulier :
 - d'accumuler les observations sur le domaine modélisé 
@@ -42,7 +42,7 @@ A mon avis, le problème global avec les modèles, c'est qu'ils sont responsable
 
 Les représentations sont systèmatiquements fauses (mais parfois utiles), et la façon de faire des observations changent avec le temps. Par contre les observations sont 'vraies' au moment où elles sont faite.
 
-Si l'on veut évoluer dans la modèlisation, *il faut faire la ségrégation de l'observation du domaine dans les modèles, des représentations.*
+Si l'on veut évoluer dans la modèlisation, **il faut faire la ségrégation de l'observation du domaine dans les modèles, des représentations.**
 
 
 ## Un exemple avec du "code"
