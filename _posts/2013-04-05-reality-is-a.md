@@ -8,13 +8,50 @@ tags: []
 {% include JB/setup %}
 
 
-Il est difficile d'énoncer quelque chose sur la représentation du monde, on veut que des représentations possèdent des propriétés intéressantes et c'est probablement tout. Tous les modèles de ce coté-là, parce que suffisament complexes, approchent et atteignent très vite leurs limites (cf le théorème d'incomplétude ou le théorème du cygne noir).
+Avec la mouvance NoSQL, cela fait maintenant quelques temps que l'on entend un peu partout que le modèle relationnel est trop pauvre (pour ceux qui offrent un modèle plus riche) ou trop riche (pour ceux qui offrent un modèle plus pauvre). 
 
-Par contre, on oublie souvent que l'observation du monde est un arbre et aussi que cette observation a un schéma ("SchemaLater" et non "SchemaLess", mais toujours un schéma). 
+Et donc en fonction de l'usage prévu, il va falloir choisir à l'inception d'un projet le modèle que l'on va utiliser pour représenter le monde et le système de gestion de ce modèle qui va avec [1]
 
-Pour aider à comprendre la différence entre la représentation du monde et l'observation du monde, je vous propose un peu de Scala.
+Bravo, et comme nous sommes world class modeler (si vous ne l'êtes pas, vous allez le devenir), nous allons tordre la donnée de notre domaine pour qu'elle rentre dans le modèle choisi en optimisant selon quelques critères : 
+ - La minimisation du nombre de ____.
+ - La maximisation du nombre de résultat sans ____[2]. 
+ - un ou deux critéres en fonction de ce qu'il y a à la mode en ce moment.
 
-Ceci est un block qui renvoit la valeur "MONDE" :
+Et c'est très intéressant comme méthode, c'est comme ça que l'on s'est retrouvé avec 40ans de SQL, pour :
+- minimiser la place nécessaire pour le modèle,
+- maximiser le nombre de résultat sans inférence (jointure)
+
+Quand le modèle fut bien déployé, on a maximisé la réutilisation d'un modèle déjà connu ...
+
+On connaît l'histoire et elle n'est pas forcement mauvaise.
+
+
+## L'autre science d'en tout ça
+
+L'histoire que l'on a oublié, c'est celle de la mécanisation de la pensée du début du 20ème siècle, les travaux sur les mathématiques, la théorie des ensembles, le Entscheidungsproblem (formulation) ainsi que des couperets qui s'en suivent, l'imcomplétude de Gödel, la négation de la résultion du Halting Problem ...
+
+Gödel montre que tout système formel sufisament complexe est imcomplet, la course à la modélisation est infinie. Plus on complexifie le model, plus il faut le complexifier pour qu'il gère ses propres éléments.
+
+Il ne sert à rien de vouloir obtenir des modèles complets, il faudrait minimiser les modèles.
+
+## Mon rasoir d'Occam
+
+Mais la minimisation des modèles n'est pas suffisante, les modèles que l'on peut créer pour tel ou tel problèmatiques sont faux, souvent peut évolutif [3]. On ne peut pas se permettre de passer 3 mois à se poser les questions si oui ou non on versionne tel partie du modèle, quel est la cardinalité entre plusieurs entités, etc etc.
+
+A mon avis, le problème global avec les modèles, c'est qu'il sont responsables de trop de chose à la fois, et en particulier :
+- d'accumuler les observations sur le domaine modélisé 
+- et de fournir une représentation.
+
+Les représentations sont systèmatiquements fauses (mais parfois utiles), et les observations changent avec le temps, mais par contre sont 'vraies' au moment où elle sont faites.
+
+Si l'on veut évoluer dans la modèlisation, il faut faire la ségrégation de l'observation dans les modèles, des représentations.
+
+
+## Un exemple avec du "code"
+
+Pour aider à comprendre la différence entre l'observation dans un modèle et la représenation, je vous propose un peu de Scala.
+
+Ceci est un block qui renvoit la valeur "MONDE", en affectant à 'a' la 
 {% highlight scala %}
 {
 	val a = "monde"
@@ -43,13 +80,13 @@ Block(
 {% endhighlight %}
 
 
-La représentation classique du block ici, après les différentes phases du compilateur, ressemble à du bytecode pour la JVM :
+Voici la représentation classique du block ici pour l'execution, après les différentes phases du compilateur :
 
 {% highlight scala %}
 Constant pool:
   #14 = Utf8               ()Ljava/lang/String;
-  #15 = Utf8               Monde
-  #16 = String             #15            //  Monde
+  #15 = Utf8               monde
+  #16 = String             #15            //  monde
   #17 = Utf8               LineNumberTable
   #18 = Utf8               java/lang/String
   #19 = Class              #18            //  java/lang/String
@@ -68,10 +105,32 @@ Constant pool:
 {% endhighlight %}
 
 
-Une autre des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à ```Literal(Constant("monde"))```, à l'application avec la fonction```"toUpperCase"``` ....
+Et voici une autre des représentations possibles est un graphe où ```newTermName("a")``` est un noeud, lié à ```Literal(Constant("monde"))```, à l'application avec la fonction```"toUpperCase"``` ....
 
 ![cool dag](/assets/reality.dot.png)
 
 
-Il y en a pleins d'autres, certaines peuvent même être compatible entre elles.
+(On peut aller voir du coté de Codeq pour ça, c'est très intéressant : http://blog.datomic.com/2012/10/codeq.html )
 
+
+
+
+On a ici à partir d'une seule observation du code Scala (l'AST), dont les noeuds sont indépendants entre eux (il n'y pas plus d'informations que la structure et le contenu de chaque noeud), deux représentations ad hoc du monde pour des usages différents.
+
+Ici, on a séparé le modèle du code (AST) de ses représentations pour des usages particuiers (execution / analyse).
+
+
+
+## Le cas des compilateurs et langages
+
+
+
+
+
+
+[1] Je pense sincérement que beaucoup font le saut du sol, et passe directement au "choix" du système de gestion. Les vendors de toutes les époques sont doués pour le FUD.
+
+[2] inférence, prodstock, applicatif custom, map reduce, ...
+
+
+[3] c'est une bonne chose, la complexité vient de la paramétrisation
