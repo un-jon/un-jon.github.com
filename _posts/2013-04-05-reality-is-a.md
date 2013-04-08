@@ -49,7 +49,8 @@ Si l'on veut évoluer dans la modèlisation, **il faut faire la ségrégation de
 
 Pour aider à comprendre la différence entre l'observation dans un modèle et la représenation, je vous propose un peu de Scala.
 
-Ceci est un block qui renvoit la valeur "MONDE", en affectant à 'a' la valeur "monde", puis en applicant à 'a' ma
+Ceci est un block qui renvoit la valeur "MONDE" (un block en Scala retourne la dernière expression).
+
 {% highlight scala %}
 {
 	val a = "monde"
