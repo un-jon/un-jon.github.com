@@ -22,54 +22,60 @@ A ces deux concepts, on peut associer les définitions suivantes :
 
 * Document : Données ayant la granularité suffisante pouvant servir de justification à une action. La notion de granularité suffisante est importante, cela permet par exemple d'aporter une réponse plus concrète à la granularité des représentations exposées dans la Web Oriented Architecture.  Par exemple, dans son talk sur la WOA H. dit que cette granularité est culturelle, je pense qu'elle n'est pas que culturelle, mais très liée à la façon dont un système agit, la granularité va être celle qui permet de justifier des actions. Une granularité plus petite ne sert à rien, il va falloir faire tout de suite des agrégats, si une granularité plus grande il va falloir préindexer, prétransformer les documents.
 
-* Représentation intermédiaire : Un document amène une représentation (de lui-même ou de quelque-chose (aboutness)). Cette réprésentation est intermédiaire car elle peut amener plusieurs interprétation ou plusieurs représentations. Chaque système peut avoir une interprétation différente, mais une représentation intermédiaire commune. Par exemple un compilateur peut avoir la même représentation qu'un analyseur statique de code, l'un va créer à partir de cette représentation un programme exécutable, l'autre va pouvoir par exemple un call graph. Le concept d'interprétation de représentation est lié à certaines approches linguistiques. En linguistique, pour un symbol, il y a le signifiant (grosso modo la représentation concrète du symbol exemple la lettre grecque lambda : λ ) et le signifié (TODO).
+* Représentation intermédiaire : Un document amène une représentation (de lui-même ou de quelque-chose (aboutness)). Cette réprésentation est intermédiaire car elle peut amener plusieurs interprétations ou plusieurs représentations. Chaque système peut avoir une interprétation différente, mais une représentation intermédiaire commune. Par exemple un compilateur peut avoir la même représentation qu'un analyseur statique de code, l'un va créer à partir de cette représentation un programme exécutable, l'autre va pouvoir par exemple un call graph. Le concept d'interprétation de représentation est lié à certaines approches linguistiques. En linguistique, pour un symbol, il y a le signifiant (grosso modo la représentation concrète du symbol exemple la lettre grecque lambda : λ ) et le signifié (TODO).
 Un groupe de système peut donc partager les mêmes signifiant (ici la même lettre grecque), mais avoir différents signifiés.
 
 Les systèmes peuvent au cours du temps changer la façon dont ils interprêtent cette représentation intermédiare (exemple, amélioration d'un moteur de gestion de base de données) 
 
 * Epoché (prononciation, Epoqué) : Epoché une suspension du temps et du jugement, c'est un concept assez pratique pour faire la conception d'une représentation intermédiaire.
 
-Une représentation intermédiaire peut être poluée par des "signifiants", par exemple, je décris les canaries : 
+Une représentation intermédiaire peut être poluée par des signifiés, par exemple, je décris les canaries : 
 
+```clojure
 {:taille-moyenne #unit/meter 0.20
  :nom-par-défaut "Titi"}
+```
 
 et j'ajoute à cette décription certains éléments (Il dit qu'il ne voit pas le rapport) : 
 
+```clojure
 {:capitaine "José le Nantais"}
+```
+
 
 Maintenant, j'ai une représentation intermédiaire qui est polué d'un complément d'information. On pourrait l'ignorer, mais ce n'est pas pratique car cette information complémentaire est présente dans le document au même niveau que les autres parties du document.
 
 Un autre exemple serait de stocker l'appel d'une fonction avec son résultat : 
 
+```clojure
 {:appel '(+ 1 1) 
  :resultat 42 }
+```
 
 Il faut donc lors de création de document limiter les inférences, les compléments, les déductions "hative" ou la platonification du monde (prenez ce que vous voulez). Il va falloir mettre dans le document que le stricte minimum, c'est à dire le contexte de création du document et juste les informations observées, par exemple :
 
+```clojure
 (user/login 
   {:time #inst "2013-05-22 ..."
    :user "Jon"
    :computer "Le MBP avec des gommettes"}
 )
+```
 
-Cette limitation ne veut pas dire qu'il faut s'en passer, on peut avoir dans le même système : 
+Cette limitation ne veut pas dire qu'il faut se passer de document contenant , on peut avoir dans le même système : 
 
-{:appel '(+ 1 1)} et 
-{:appel '(+ 1 1) :resultat 42} 
+```{:appel '(+ 1 1)}``` et 
+```{:appel '(+ 1 1) :resultat 42}```
 
-Mais {:appel '(+ 1 1) :resultat 42} n'est pas le document maître [1].
+Mais ```{:appel '(+ 1 1) :resultat 42}``` n'est pas le document maître [1].
 
 Et c'est tout pour cette-fois ci. Alors j'ai probablement des pointeurs pour des éléments connexes : 
 
-- L'article de Pierre Chapuis  :  http://blog.separateconcerns.com/2013-01-28-algorithms-data-structures-protocols.html
+- L'article de Pierre Chapuis (Algorithms, Data Structures and Protocols) :  http://blog.separateconcerns.com/2013-01-28-algorithms-data-structures-protocols.html
 
-- Les videos de Rich Hickey, comme d'hab, c'est très intéressant : 
- - 
- -  
-
-- Des videos sur de l'event sourcing ? 
+- Les videos de Rich Hickey : http://www.infoq.com/presentations/Value-Values , http://www.infoq.com/author/Rich-Hickey
+ 
 - Mme Clarisse ? http://www.parleys.com/play/51703640e4b095cc56d8d4af/chapter1/about
 
 
- [1] C'est une sujet à développer dans le cadre des bdd graphes (forme de bdd que j'aprécie tout de même), est-ce que c'est génant de stocker l'index (l'index primaire d'un graphe est le graphe), la data, les documents et dark vador dans le même espace muable et non versionné ? C'est probablement pragmatique, mais je ne vois pas comment on pourrait se passer dans ce cas là d'une bonne bande magnétique qui stocke la donnée maître (au cas où ...).
+ [1] C'est une sujet à développer dans le cadre des bdd graphes (forme de bdd que j'aprécie tout de même), est-ce que c'est génant de stocker l'index (l'index primaire d'un graphe est le graphe), la data, les documents et dark vador dans le même espace muable et non versionné ? C'est probablement pratique, mais je ne vois pas comment on pourrait se passer dans ce cas là d'une bonne bande qui stocke la donnée maître (au cas où ...).
