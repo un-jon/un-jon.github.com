@@ -30,44 +30,39 @@ Les systèmes peuvent au cours du temps changer la façon dont ils interprêtent
 * Epoché (prononciation, Epoqué) : Epoché une suspension du temps et du jugement, c'est un concept assez pratique pour faire la conception d'une représentation intermédiaire.
 
 Une représentation intermédiaire peut être poluée par des signifiés, par exemple, je décris les canaries : 
-
-```clojure
-{:taille-moyenne #unit/meter 0.20
- :nom-par-défaut "Titi"}
-```
-
+{% highlight clojure %}{:taille-moyenne #unit/meter 0.20
+ :nom-par-défaut "Titi"}{% endhighlight %}
 et j'ajoute à cette décription certains éléments (Il dit qu'il ne voit pas le rapport) : 
-
-```clojure
-{:capitaine "José le Nantais"}
-```
-
+{% highlight clojure %}{:capitaine "José le Nantais"}{% endhighlight %}
 
 Maintenant, j'ai une représentation intermédiaire qui est polué d'un complément d'information. On pourrait l'ignorer, mais ce n'est pas pratique car cette information complémentaire est présente dans le document au même niveau que les autres parties du document.
 
 Un autre exemple serait de stocker l'appel d'une fonction avec son résultat : 
 
-```clojure
+{% highlight clojure %}
 {:appel '(+ 1 1) 
  :resultat 42 }
-```
+
+{% endhighlight %}
 
 Il faut donc lors de création de document limiter les inférences, les compléments, les déductions "hative" ou la platonification du monde (prenez ce que vous voulez). Il va falloir mettre dans le document que le stricte minimum, c'est à dire le contexte de création du document et juste les informations observées, par exemple :
 
-```clojure
+{% highlight clojure %}
+
 (user/login 
   {:time #inst "2013-05-22 ..."
    :user "Jon"
    :computer "Le MBP avec des gommettes"}
 )
-```
+
+{% endhighlight %}
 
 Cette limitation ne veut pas dire qu'il faut se passer de document contenant , on peut avoir dans le même système : 
 
 ```{:appel '(+ 1 1)}``` et 
 ```{:appel '(+ 1 1) :resultat 42}```
 
-Mais ```{:appel '(+ 1 1) :resultat 42}``` n'est pas le document maître [1].
+Mais ```{:appel '(+ 1 1) :resultat 42}``` n'est pas le document maître ^[1][1].
 
 Et c'est tout pour cette-fois ci. Voici quelques pointeurs pour des éléments connexes : 
 
@@ -78,4 +73,4 @@ Et c'est tout pour cette-fois ci. Voici quelques pointeurs pour des éléments c
 - Mme Clarisse ? http://www.parleys.com/play/51703640e4b095cc56d8d4af/chapter1/about
 
 
- [1] C'est une sujet à développer dans le cadre des bdd graphes (forme de bdd que j'aprécie tout de même), est-ce que c'est génant de stocker l'index (l'index primaire d'un graphe est le graphe), la data, les documents et dark vador dans le même espace muable et non versionné ? C'est probablement pratique, mais je ne vois pas comment on pourrait se passer dans ce cas là d'une bonne bande qui stocke la donnée maître (au cas où ...).
+  [1] C'est une sujet à développer dans le cadre des bdd graphes (forme de bdd que j'aprécie tout de même), est-ce que c'est génant de stocker l'index (l'index primaire d'un graphe est le graphe), la data, les documents et dark vador dans le même espace muable et non versionné ? C'est probablement pratique, mais je ne vois pas comment on pourrait se passer dans ce cas là d'une bonne bande qui stocke la donnée maître (au cas où ...).

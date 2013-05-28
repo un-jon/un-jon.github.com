@@ -28,7 +28,7 @@ Here is the complete build.sbt
 
 
 
-[1] Reference about it : [SbtTesting](https://github.com/harrah/xsbt/wiki/Testing) 
+[1]: Reference about it : [SbtTesting](https://github.com/harrah/xsbt/wiki/Testing) 
 
 
 
